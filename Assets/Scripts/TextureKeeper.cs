@@ -27,6 +27,7 @@ public class TextureKeeper : MonoBehaviour
             }
         }
         newTexture.Apply();
+        newTexture.filterMode = texture.filterMode;
         textures.Add(new MonoTexture(newTexture, name));
         return Sprite.Create(newTexture, new Rect(0, 0, newTexture.width, newTexture.height), new Vector2(0.5f, 0.5f));
     }
