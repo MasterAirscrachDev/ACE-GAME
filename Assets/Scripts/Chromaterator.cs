@@ -56,6 +56,11 @@ public class Chromaterator : MonoBehaviour
             }
         }
     }
+    public void RemoveAllColors(){
+        while(colors.Count > 0){
+            RemoveColor(colors[0].color);
+        }
+    }
 }
 [System.Serializable]
 class ColorObj{
