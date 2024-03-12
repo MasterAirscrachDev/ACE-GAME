@@ -11,33 +11,16 @@ public class CursorButton : MonoBehaviour
     {
         SetCol();
     }
-    
-    void OnTriggerStay2D(Collider2D other){
-        if(other.gameObject.CompareTag("Player")){
-            if(Input.GetMouseButton(0)){
-                if(!isHeld){
-                    toggle.SetActive(!toggle.activeSelf);
-                }
-                isHeld = true;
-                SetCol();
-            }
-            else if(isHeld){
-                if(holdMode){
-                    toggle.SetActive(!toggle.activeSelf);
-                }
-                isHeld = false;
-                SetCol();
-            }
-        }
+    public void Click(){
+        isHeld = true;
+        SetCol();
+        toggle.SetActive(!toggle.activeSelf);
     }
-    void OnTriggerExit2D(Collider2D other){
-        if(other.gameObject.CompareTag("Player")){
-            if(isHeld && holdMode){
-                toggle.SetActive(!toggle.activeSelf);
-                
-            }
-            isHeld = false;
-            SetCol();
+    public void Release(){
+        isHeld = false;
+        SetCol();
+        if(holdMode){
+            toggle.SetActive(!toggle.activeSelf);
         }
     }
     void SetCol(){

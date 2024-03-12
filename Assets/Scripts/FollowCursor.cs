@@ -17,13 +17,13 @@ public class FollowCursor : MonoBehaviour
         offset = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z) * offset;
 
         Vector3 Tpos = cursorPos + offset;
-        //rotate to 0
         
-
         //move towards the cursor
         float distance = Vector3.Distance(Tpos, transform.position);
         distance = Mathf.Clamp(distance, 0.5f, 5);
         rb.AddForce((Tpos - transform.position) * distance);
-        
+        //Debug.Log(rb.velocity.magnitude);
+        if(rb.velocity.magnitude > 40)
+        { rb.velocity = rb.velocity.normalized * 40; }
     }
 }
